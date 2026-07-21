@@ -576,14 +576,15 @@
   // ===== ROBÔ: giro rápido ao clicar =====
   const mascotPhoto = document.querySelector('.mascot-photo');
   if (mascotPhoto) {
+    let spinTimeout;
     mascotPhoto.addEventListener('click', () => {
-      if (mascotPhoto.classList.contains('spin-fast')) return;
+      clearTimeout(spinTimeout);
+      mascotPhoto.classList.remove('spin-fast');
+      void mascotPhoto.offsetWidth; // força o navegador a "resetar" antes de reaplicar
       mascotPhoto.classList.add('spin-fast');
-    });
-    mascotPhoto.addEventListener('animationend', (e) => {
-      if (e.animationName === 'spin') {
+      spinTimeout = setTimeout(() => {
         mascotPhoto.classList.remove('spin-fast');
-      }
+      }, 2100);
     });
   }
 </script>
