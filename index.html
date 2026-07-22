@@ -216,6 +216,37 @@
   .gallery-item{cursor:zoom-in;}
   @media(max-width:900px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
 
+  /* ===== ROBÔ ANDANDO NO RODAPÉ ===== */
+  .robot-walk-wrap{position:relative; width:100%; height:70px; overflow:hidden; margin-top:18px;}
+  .robot-walk{
+    position:absolute; bottom:0; left:0;
+    animation: robot-pace 16s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px var(--neon-glow));
+  }
+  .robot-walk svg{display:block; animation: robot-bounce .5s ease-in-out infinite;}
+  .robot-walk .leg-l{transform-origin: 20px 58px; animation: leg-swing-l .5s ease-in-out infinite;}
+  .robot-walk .leg-r{transform-origin: 39px 58px; animation: leg-swing-r .5s ease-in-out infinite;}
+  .robot-walk .arm-l{transform-origin: 6px 36px; animation: arm-swing-r .5s ease-in-out infinite;}
+  .robot-walk .arm-r{transform-origin: 54px 36px; animation: arm-swing-l .5s ease-in-out infinite;}
+  .robot-walk .eye{animation: eye-blink 4s ease-in-out infinite;}
+
+  @keyframes robot-pace{
+    0%   { left:0; transform: scaleX(1); }
+    45%  { left: calc(100% - 50px); transform: scaleX(1); }
+    50%  { left: calc(100% - 50px); transform: scaleX(-1); }
+    95%  { left:0; transform: scaleX(-1); }
+    100% { left:0; transform: scaleX(1); }
+  }
+  @keyframes robot-bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-3px);} }
+  @keyframes leg-swing-l{ 0%,100%{transform:rotate(18deg);} 50%{transform:rotate(-18deg);} }
+  @keyframes leg-swing-r{ 0%,100%{transform:rotate(-18deg);} 50%{transform:rotate(18deg);} }
+  @keyframes arm-swing-l{ 0%,100%{transform:rotate(-15deg);} 50%{transform:rotate(15deg);} }
+  @keyframes arm-swing-r{ 0%,100%{transform:rotate(15deg);} 50%{transform:rotate(-15deg);} }
+  @keyframes eye-blink{ 0%,92%,100%{opacity:1;} 96%{opacity:.15;} }
+  @media (prefers-reduced-motion: reduce){
+    .robot-walk, .robot-walk svg, .robot-walk .leg-l, .robot-walk .leg-r, .robot-walk .arm-l, .robot-walk .arm-r, .robot-walk .eye{ animation:none; }
+  }
+
   /* ===== VIDEOS ===== */
   .video-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:22px;}
   .video-card{
@@ -568,6 +599,23 @@
       <div class="foot-social">
         <a href="https://wa.me/5589994604846" target="_blank" aria-label="WhatsApp">📲</a>
         <a href="#" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+    <div class="robot-walk-wrap" aria-hidden="true">
+      <div class="robot-walk">
+        <svg viewBox="0 0 60 70" width="50" height="58" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="2" x2="30" y2="10" stroke="var(--neon)" stroke-width="2"/>
+          <circle cx="30" cy="2" r="3" fill="var(--neon)"/>
+          <rect x="14" y="10" width="32" height="24" rx="6" fill="var(--panel)" stroke="var(--neon)" stroke-width="2"/>
+          <circle class="eye" cx="23" cy="22" r="3.5" fill="var(--neon)"/>
+          <circle class="eye" cx="37" cy="22" r="3.5" fill="var(--neon)"/>
+          <rect x="10" y="34" width="40" height="24" rx="6" fill="var(--panel)" stroke="var(--neon-dim)" stroke-width="2"/>
+          <rect x="22" y="42" width="16" height="8" rx="2" fill="var(--neon)" opacity=".5"/>
+          <rect class="arm arm-l" x="2" y="36" width="8" height="18" rx="4" fill="var(--panel)" stroke="var(--neon-dim)" stroke-width="2"/>
+          <rect class="arm arm-r" x="50" y="36" width="8" height="18" rx="4" fill="var(--panel)" stroke="var(--neon-dim)" stroke-width="2"/>
+          <rect class="leg leg-l" x="16" y="58" width="9" height="12" rx="3" fill="var(--panel)" stroke="var(--neon-dim)" stroke-width="2"/>
+          <rect class="leg leg-r" x="35" y="58" width="9" height="12" rx="3" fill="var(--panel)" stroke="var(--neon-dim)" stroke-width="2"/>
+        </svg>
       </div>
     </div>
     <div class="foot-bottom">© 2026 EA_CELL Assistência Técnica. Todos os direitos reservados.</div>
