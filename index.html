@@ -216,6 +216,15 @@
   .gallery-item{cursor:zoom-in;}
   @media(max-width:900px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
 
+  /* ===== VIDEOS ===== */
+  .video-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:22px;}
+  .video-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .video-card video{width:100%; display:block; aspect-ratio:16/9; object-fit:cover; background:#06070a;}
+  .video-card figcaption{padding:16px 18px; font-size:14px; color:var(--grey);}
+
   /* ===== LIGHTBOX ===== */
   .lightbox{
     position:fixed; inset:0; background:rgba(4,5,8,.92); z-index:999;
@@ -305,6 +314,7 @@
       <li><a href="#inicio">Início</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#galeria">Galeria</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <a href="https://wa.me/5589994604846" target="_blank" class="cta-whats">📲 Fale no WhatsApp</a>
@@ -414,18 +424,48 @@
 
 <div class="wrap divider"></div>
 
-<section class="pad">
+<section class="pad" id="galeria">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span> Bastidores</span>
       <h2>Galeria</h2>
-      <p>Fotos da bancada, dos reparos e dos equipamentos usados no dia a dia da EA_CELL.</p>
+      <p>Fotos da bancada, dos reparos, da loja e dos equipamentos usados no dia a dia da EA_CELL.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item reveal"><img src="assets/bancada.jpg" alt="Bancada de trabalho EA_CELL"><span>Bancada</span></div>
-      <div class="gallery-item reveal"><img src="assets/reparos.jpg" alt="Reparo de celular em andamento"><span>Reparos</span></div>
-      <div class="gallery-item reveal"><img src="assets/equipamentos.jpg" alt="Microscópio e equipamentos da EA_CELL"><span>Equipamentos</span></div>
-      <div class="gallery-item reveal"><img src="assets/manutencao.jpg" alt="Manutenção de celular na chapa de pré-aquecimento"><span>Manutenção</span></div>
+      <div class="gallery-item reveal"><img src="assets/notebook-interno.jpg" alt="Manutenção interna de notebook na bancada EA_CELL"><span>Notebook</span></div>
+      <div class="gallery-item reveal"><img src="assets/samsung-bancada.jpg" alt="Samsung em análise na bancada de reparo"><span>Samsung</span></div>
+      <div class="gallery-item reveal"><img src="assets/produtos-vitrine.jpg" alt="Carregadores e caixas de som na vitrine da loja"><span>Vitrine</span></div>
+      <div class="gallery-item reveal"><img src="assets/produtos-carregadores.jpg" alt="Carregadores rápidos Amaya e caixa de som KTS"><span>Produtos</span></div>
+      <div class="gallery-item reveal"><img src="assets/produtos-fones.jpg" alt="Fones AirDots e caixas de som na prateleira"><span>Fones &amp; Som</span></div>
+      <div class="gallery-item reveal"><img src="assets/reparo-poco.jpg" alt="Desmontagem de celular POCO para reparo"><span>Reparo POCO</span></div>
+      <div class="gallery-item reveal"><img src="assets/conserto-samsung.jpg" alt="Conserto de Samsung na bancada técnica"><span>Conserto</span></div>
+      <div class="gallery-item reveal"><img src="assets/loja-acessorios.jpg" alt="Acessórios e produtos expostos na loja EA_CELL"><span>Loja</span></div>
+      <div class="gallery-item reveal"><img src="assets/troca-tela.jpg" alt="Troca de tela de celular em andamento"><span>Troca de tela</span></div>
+      <div class="gallery-item reveal"><img src="assets/vitrine-produtos.jpg" alt="Vitrine com smartphones e acessórios"><span>Acessórios</span></div>
+      <div class="gallery-item reveal"><img src="assets/reparo-iphone-jig.jpg" alt="iPhone em suporte profissional para reparo interno"><span>iPhone</span></div>
+      <div class="gallery-item reveal"><img src="assets/troca-vidro-traseiro.jpg" alt="Troca de vidro traseiro de iPhone"><span>Vidro traseiro</span></div>
+      <div class="gallery-item reveal"><img src="assets/reparo-fonte.jpg" alt="Reparo de fonte de alimentação de notebook"><span>Fonte</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap divider"></div>
+
+<section class="pad" id="videos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Na prática</span>
+      <h2>Vídeos</h2>
+      <p>Veja um pouco do nosso trabalho na bancada.</p>
+    </div>
+    <div class="video-grid">
+      <figure class="video-card reveal">
+        <video controls preload="metadata" playsinline poster="assets/notebook-interno.jpg">
+          <source src="assets/bancada-video.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo HTML5.
+        </video>
+        <figcaption>Bancada EA_CELL — reparos e assistência técnica.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
